@@ -18,6 +18,7 @@ public class Building : SpawnableEntity, ISelectionableEntity
     
     public void clicked(int mouseInput)
     {
-        
+        Debug.Log("BUILDING SELECTED (" + mouseInput + ")");
+        UIManager.INSTANCE.BuildingSelected(this);
     }
 }

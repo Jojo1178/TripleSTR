@@ -774,10 +774,10 @@ RectTransform:
   m_Father: {fileID: 1286963351}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2, y: -20}
-  m_SizeDelta: {x: 100, y: 150}
+  m_AnchoredPosition: {x: 2, y: -10}
+  m_SizeDelta: {x: 100, y: -20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &852063502
 MonoBehaviour:
@@ -1137,7 +1137,7 @@ RectTransform:
   m_GameObject: {fileID: 1286963350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.12, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 852063501}
   m_Father: {fileID: 404401833}
@@ -1146,7 +1146,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 200}
+  m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1286963352
 MonoBehaviour:
@@ -1228,11 +1228,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ce1d6001173cb4497ba22c4404b450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelTemporaire: {fileID: 1902910020}
-  panelUnits: {fileID: 1268675575}
-  panelBuildings: {fileID: 1275292705}
-  panelCommun: {fileID: 677379967}
-  panelCommunTextName: {fileID: 190967396}
 --- !u!1 &1748106386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1748106387}
+  - component: {fileID: 1748106388}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1263,6 +1259,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1748106388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748106386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5309da621d72e794d882d3f6bbe64f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelTemporaire: {fileID: 1902910020}
+  panelUnits: {fileID: 1268675575}
+  panelBuildings: {fileID: 1275292705}
+  panelCommun: {fileID: 677379967}
+  panelCommunTextName: {fileID: 190967396}
 --- !u!1 &1902910020
 GameObject:
   m_ObjectHideFlags: 0

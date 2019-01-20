@@ -18,6 +18,7 @@ public class Unit : SpawnableEntity, ISelectionableEntity
     
     public void clicked(int mouseInput)
     {
-        
+        Debug.Log("UNIT SELECTED (" + mouseInput + ")");
+        UIManager.INSTANCE.UnitSelected(this);
     }
 }

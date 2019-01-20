@@ -18,6 +18,7 @@ public class Map : MonoBehaviour, ISelectionableEntity
 
     public void clicked(int mouseInput)
     {
-        
+        Debug.Log("MAP SELECTED (" + mouseInput + ")");
+        UIManager.INSTANCE.MapSelected(this);
     }
 }
