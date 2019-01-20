@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : SpawnableEntity, ISelectionableEntity
+public class Map : MonoBehaviour, ISelectionableEntity
 {
     // Start is called before the first frame update
     void Start()
     {
-        this.setName("UNIT");
+        
     }
 
     // Update is called once per frame
@@ -15,7 +15,7 @@ public class Unit : SpawnableEntity, ISelectionableEntity
     {
         
     }
-    
+
     public void clicked(int mouseInput)
     {
         

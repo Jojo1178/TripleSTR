@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : SpawnableEntity, ISelectionableEntity
+public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        this.setName("UNIT");
+        
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
-    }
-    
-    public void clicked(int mouseInput)
     {
         
     }
