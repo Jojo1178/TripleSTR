@@ -665,6 +665,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b42e01e2372384ea78a31b8881c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScreenEdgeBorderThickness: 5
+  CameraMode: 0
+  minPanSpeed: 0
+  maxPanSpeed: 10
+  secToMaxSpeed: 1
+  zoomSpeed: 10
+  enableMovementLimits: 0
+  heightLimit: {x: 0, y: 0}
+  lenghtLimit: {x: 0, y: 0}
+  widthLimit: {x: 0, y: 0}
+  rotationEnabled: 1
+  rotateSpeed: 10
 --- !u!1 &677379967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,8 +1474,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: WidthPan
+  m_VerticalAxis: LengthPan
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
