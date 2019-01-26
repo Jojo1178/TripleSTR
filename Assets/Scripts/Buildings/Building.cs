@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Building : SpawnableEntity, ISelectionableEntity
 {
+    private Texture2D cursorTexture;
+
     // Start is called before the first frame update
-    void Start()
+    new protected void Start()
     {
-        this.setName("BUILDING");
+        base.Start();
+        Debug.LogError("---> BULDING");
+        
+        this.cursorTexture = Resources.Load<Texture2D>("Cursors/cursor_goInside");
     }
 
     // Update is called once per frame
@@ -20,5 +25,22 @@ public class Building : SpawnableEntity, ISelectionableEntity
     {
         Debug.Log("BUILDING SELECTED (" + mouseInput + ")");
         UIManager.INSTANCE.BuildingSelected(this);
+    }
+
+    void OnMouseOver()
+    {
+        Debug.Log("Mouse is over "+this.getName());
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+    }
+
+    void OnMouseExit()
+    {
+        Debug.Log("Mouse is no longer on "+ this.getName());
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void setCursorTexture(Texture2D cursorTexture)
+    {
+        this.cursorTexture = cursorTexture;
     }
 }

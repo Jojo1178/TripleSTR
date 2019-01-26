@@ -5,8 +5,11 @@ using UnityEngine;
 public class Bank : PermanentBuilding, ISelectionableEntity
 {
     // Start is called before the first frame update
-    void Start()
+    new protected void Start()
     {
+        base.Start();
+        Debug.LogError("---> BANK");
+
         this.setName("Bank");
     }
 

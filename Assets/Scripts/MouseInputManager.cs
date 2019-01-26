@@ -11,8 +11,8 @@ public class MouseInputManager : MonoBehaviour
 
     void Update()
     {
-
         this._mouseInput = GetMouseInput();
+
         //On vérifie si il y a eu un clic de la souris:
         if (this._mouseInput != -1)
         {
@@ -48,6 +48,5 @@ public class MouseInputManager : MonoBehaviour
             return 2;
         }
         return -1;
-
     }
 }

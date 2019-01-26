@@ -5,8 +5,9 @@ using UnityEngine;
 public class TownHall : PermanentBuilding, ISelectionableEntity
 {
     // Start is called before the first frame update
-    void Start()
+    new protected void Start()
     {
+        base.Start();
         this.setName("Town Hall");
     }
 
