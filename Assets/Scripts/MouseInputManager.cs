@@ -27,7 +27,7 @@ public class MouseInputManager : MonoBehaviour
                 ISelectionableEntity selectionableEntity = selectedGameObject.GetComponent<ISelectionableEntity>();
                 if (selectionableEntity != null)
                 {
-                    selectionableEntity.clicked(this._mouseInput);
+                    selectionableEntity.clicked(this._mouseInput, hit);
                 }
             }
         }

@@ -5,8 +5,9 @@ using UnityEngine;
 public class Unit : SpawnableEntity, ISelectionableEntity
 {
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         this.setName("UNIT");
     }
 
@@ -16,7 +17,7 @@ public class Unit : SpawnableEntity, ISelectionableEntity
         
     }
     
-    public void clicked(int mouseInput)
+    public void clicked(int mouseInput, RaycastHit hit)
     {
         Debug.Log("UNIT SELECTED (" + mouseInput + ")");
         UIManager.INSTANCE.UnitSelected(this);

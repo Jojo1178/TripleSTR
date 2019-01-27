@@ -9,7 +9,7 @@ public class SpawnableEntity : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        Debug.LogError("---> SPAWNABLE ENTITY");
+        Debug.Log("---> SPAWNABLE ENTITY");
     }
 
     // Update is called once per frame

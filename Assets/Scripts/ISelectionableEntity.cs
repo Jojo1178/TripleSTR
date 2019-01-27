@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISelectionableEntity
 {
-    void clicked(int mouseInput);
+    void clicked(int mouseInput, RaycastHit hit);
 }

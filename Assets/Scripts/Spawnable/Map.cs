@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Map : MonoBehaviour, ISelectionableEntity
 {
+
+    //public Navme [] surfaces;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +19,23 @@ public class Map : MonoBehaviour, ISelectionableEntity
         
     }
 
-    public void clicked(int mouseInput)
+    public void clicked(int mouseInput, RaycastHit hit)
     {
         Debug.Log("MAP SELECTED (" + mouseInput + ")");
         UIManager.INSTANCE.MapSelected(this);
+
+        if (mouseInput == 1)
+        {
+            // Clique droit sur la carte, on bouge le joueur
+            ApplicationController.INSTANCE.MainPlayer.Move(hit);
+        }
     }
+
+    //public void ReBakeNavMesh()
+    //{
+    //    for (int i = 0; i < surfaces.Length; i++)
+    //    {
+    //        surfaces[i].BuildNavMesh();
+    //    }
+    //}
 }

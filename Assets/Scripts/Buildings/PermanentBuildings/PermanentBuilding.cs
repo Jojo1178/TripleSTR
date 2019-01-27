@@ -8,7 +8,7 @@ public class PermanentBuilding : Building
     new protected void Start()
     {
         base.Start();
-        Debug.LogError("---> PERMANENT BUILDING");
+        Debug.Log("---> PERMANENT BUILDING");
     }
 
     // Update is called once per frame

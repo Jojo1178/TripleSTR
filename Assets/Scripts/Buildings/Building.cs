@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Building : SpawnableEntity, ISelectionableEntity
 {
+    public NavMeshObstacle navMeshObstacle;
+
     private Texture2D cursorTexture;
 
     // Start is called before the first frame update
     new protected void Start()
     {
         base.Start();
-        Debug.LogError("---> BULDING");
+        Debug.Log("---> BULDING");
         
         this.cursorTexture = Resources.Load<Texture2D>("Cursors/cursor_goInside");
     }
@@ -21,7 +24,7 @@ public class Building : SpawnableEntity, ISelectionableEntity
         
     }
     
-    public void clicked(int mouseInput)
+    public void clicked(int mouseInput, RaycastHit hit)
     {
         Debug.Log("BUILDING SELECTED (" + mouseInput + ")");
         UIManager.INSTANCE.BuildingSelected(this);

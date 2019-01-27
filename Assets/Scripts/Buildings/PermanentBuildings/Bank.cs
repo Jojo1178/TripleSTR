@@ -8,7 +8,7 @@ public class Bank : PermanentBuilding, ISelectionableEntity
     new protected void Start()
     {
         base.Start();
-        Debug.LogError("---> BANK");
+        Debug.Log("---> BANK");
 
         this.setName("Bank");
     }
