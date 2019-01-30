@@ -32,13 +32,11 @@ public class Building : SpawnableEntity, ISelectionableEntity
 
     void OnMouseOver()
     {
-        Debug.Log("Mouse is over "+this.getName());
         Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     void OnMouseExit()
     {
-        Debug.Log("Mouse is no longer on "+ this.getName());
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 

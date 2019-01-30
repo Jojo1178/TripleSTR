@@ -9,15 +9,13 @@ public class UIManager : MonoBehaviour
     public static UIManager INSTANCE;
 
     //Panels:
-    public GameObject panelTemporaire;
-    public GameObject panelUnits;
     public GameObject panelBuildings;
-    public GameObject panelCommun;
 
-    //Panels components:
-
-    // #panelCommun:
-    public Text panelCommunTextName;
+    public GameObject panelWell;
+    public GameObject panelDoor;
+    public GameObject panelBank;
+    public GameObject panelTownHall;
+    public GameObject panelEmptySlot;
 
     private void Awake()
     {
@@ -26,36 +24,75 @@ public class UIManager : MonoBehaviour
 
     public void BuildingSelected(Building selectedBuilding)
     {
-        //Affichage des panels concernés:
-        panelTemporaire.SetActive(true);
-        panelCommun.SetActive(true);
+        //Affichage de l'UI commune a tous les batiments:
         panelBuildings.SetActive(true);
-        panelUnits.SetActive(false);
 
-        //Recuperation des informations à afficher dans l'UI:
-        string buildingName = selectedBuilding.getName();
-
-        //Remplissage des champs de l'UI:
-        panelCommunTextName.text = buildingName;
+        //Affichage de l'UI propre a chaque batiment:
+        switch (selectedBuilding.getName())
+        {
+            case "Bank":
+                this.bankSelected();
+                break;
+            case "Door":
+                this.doorSelected();
+                break;
+            case "Town Hall":
+                this.townHallSelected();
+                break;
+            case "Well":
+                this.wellSelected();
+                break;
+            case "Empty Slot":
+                this.emptySlot();
+                break;
+            default:
+                break;
+        }
     }
 
     public void UnitSelected(Unit selectedUnit)
     {
-        //Affichage des panels concernés:
-        panelTemporaire.SetActive(true);
-        panelCommun.SetActive(true);
-        panelBuildings.SetActive(false);
-        panelUnits.SetActive(true);
-
-        //Recuperation des informations à afficher dans l'UI:
-        string unitName = selectedUnit.getName();
-
-        //Remplissage des champs de l'UI:
-        panelCommunTextName.text = unitName;
+        Debug.Log("Unit " + selectedUnit + " selected.");
     }
 
     public void MapSelected(Map selectedMap)
     {
-        panelTemporaire.SetActive(false);
+        Debug.Log("Map " + selectedMap + " selected.");
+    }
+
+    private void wellSelected()
+    {
+        panelWell.SetActive(true);
+    }
+
+    private void bankSelected()
+    {
+        panelBank.SetActive(true);
+    }
+
+    private void townHallSelected()
+    {
+        panelTownHall.SetActive(true);
+    }
+
+    private void doorSelected()
+    {
+        panelDoor.SetActive(true);
+    }
+
+    private void emptySlot()
+    {
+        panelEmptySlot.SetActive(true);
+    }
+
+    public void quitPanelBuildings()
+    {
+        panelWell.SetActive(false);
+        panelDoor.SetActive(false);
+        panelBank.SetActive(false);
+        panelTownHall.SetActive(false);
+        panelEmptySlot.SetActive(false);
+
+        panelBuildings.SetActive(false);
     }
 }
