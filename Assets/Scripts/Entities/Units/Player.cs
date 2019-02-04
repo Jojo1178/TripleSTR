@@ -53,6 +53,24 @@ public class Player : Unit
         }
     }
 
+    public bool addObjectToPlayerInventory(UsableObject objectToAdd)
+    {
+        for (int i = 0; i < playerInventory.Length; i++)
+        {
+            if (playerInventory[i] == null)
+            {
+                playerInventory[i] = objectToAdd;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeObjectFromPlayerInventory(int inventoryId)
+    {
+        playerInventory[inventoryId] = null;
+    }
+
     public UsableObject[] getPlayerInventory()
     {
         return this.playerInventory;

@@ -38,6 +38,24 @@ public class Bank : PermanentBuilding, ISelectionableEntity
         
     }
 
+    public bool addObjectToBankInventory(UsableObject objectToAdd)
+    {
+        for (int i = 0; i < bankInventory.Length; i++)
+        {
+            if (bankInventory[i] == null)
+            {
+                bankInventory[i] = objectToAdd;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeObjectFromBankInventory(int inventoryId)
+    {
+        bankInventory[inventoryId] = null;
+    }
+
     public UsableObject[] getBankInventory()
     {
         return this.bankInventory;

@@ -54,7 +54,7 @@ public class PanelBankInventory : MonoBehaviour
                 buttonItem.name = "buttonItem" + (id);
                 //buttonItem.transform.GetChild(0).GetComponent<Text>().text = "" + id;
                 buttonItem.transform.localPosition = new Vector2(30 * (i+1), -30 * (j+1));
-                buttonItem.GetComponent<Button>().onClick.AddListener(clickItemBankInventory);
+                buttonItem.GetComponent<Button>().onClick.AddListener(delegate{clickItemBankInventory(id);});
 
                 //On stocke les boutons dans un tableau:
                 bankInventoryButton[id] = buttonItem;
@@ -80,24 +80,14 @@ public class PanelBankInventory : MonoBehaviour
                 GameObject buttonItem = (GameObject)Instantiate(buttonItemPrefab);
                 buttonItem.transform.SetParent(panelPlayerInventory.transform);
                 buttonItem.name = "buttonItem" + (id);
-                buttonItem.GetComponent<Button>().onClick.AddListener(clickItemPlayerInventory);
-                buttonItem.transform.GetChild(0).GetComponent<Text>().text = "" + id;
+                buttonItem.GetComponent<Button>().onClick.AddListener(delegate {clickItemPlayerInventory(id);});
+                //buttonItem.transform.GetChild(0).GetComponent<Text>().text = "" + id;
                 buttonItem.transform.localPosition = new Vector2(30 * (i+1), -30 * (j+1));
 
                 //On stocke les boutons dans un tableau:
                 playerInventoryButton[id] = buttonItem;
             }
         }
-    }
-
-    void clickItemBankInventory()
-    {
-        Debug.Log("ITEM BANK INVENTORY");
-    }
-
-    void clickItemPlayerInventory()
-    {
-        Debug.Log("ITEM PLAYER INVENTORY");
     }
 
     private void updateBankInventory()
@@ -151,6 +141,32 @@ public class PanelBankInventory : MonoBehaviour
                 //bankInventoryButton[i].transform.GetChild(0).GetComponent<Text>().text = "N";
                 playerInventoryButton[i].GetComponent<Image>().sprite = spriteEmptySlot;
             }
+        }
+    }
+
+    void clickItemBankInventory(int id)
+    {
+        //Si on clique sur un objet de l'inventaire de la banque, on l'ajoute dans l'inventaire du joueur:
+        UsableObject clickedObject = bank.getBankInventory()[id];
+        bool objectAdded = player.addObjectToPlayerInventory(clickedObject);
+
+        //Si l'object a bien pu être ajouté, on le retire de l'inventaire du joueur:
+        if (objectAdded)
+        {
+            bank.removeObjectFromBankInventory(id);
+        }
+    }
+
+    void clickItemPlayerInventory(int id)
+    {
+        //Si on clique sur un objet de l'inventaire du joueur, on l'ajoute dans l'inventaire de la banque:
+        UsableObject clickedObject = player.getPlayerInventory()[id];
+        bool objectAdded = bank.addObjectToBankInventory(clickedObject);
+
+        //Si l'object a bien pu être ajouté, on le retire de l'inventaire de la banque:
+        if (objectAdded)
+        {
+            player.removeObjectFromPlayerInventory(id);
         }
     }
 }
