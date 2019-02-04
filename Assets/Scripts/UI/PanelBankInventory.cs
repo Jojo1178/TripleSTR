@@ -9,34 +9,37 @@ public class PanelBankInventory : MonoBehaviour
     public GameObject panelBankInventory;
     public GameObject panelPlayerInventory;
 
+    private Bank bank;
+    private Player player;
+
     private GameObject[] bankInventoryButton;
     private GameObject[] playerInventoryButton;
 
     public Sprite spriteEmptySlot;
-
-    //TODO déplacer le GamePlay dans le script Bank:
-    int bankInventoryLineNumber = 10;
-    int bankInventoryColumnNumber = 20;
-
-    //TODO déplacer le GamePlay dans le script Player:
-    int playerInventoryLineNumber = 1;
-    int playerInventoryColumnNumber = 6;
-
+    
     // Start is called before the first frame update
     void Start()
     {
-        createPlayerInventory();
+        bank = EntitiesController.INSTANCE.getBank();
+        player = EntitiesController.INSTANCE.getPlayer();
+
         createBankInventory();
+        createPlayerInventory();
     }
 
     // Update is called once per frame
     void Update()
     {
         updateBankInventory();
+        updatePlayerInventory();
     }
 
     void createBankInventory()
     {
+        //On récupere les donnees de l'objet Bank:
+        int bankInventoryLineNumber = bank.getBankInventoryLineNumber();
+        int bankInventoryColumnNumber = bank.getBankInventoryColumnNumber();
+
         bankInventoryButton = new GameObject[bankInventoryColumnNumber*bankInventoryLineNumber];
 
         for (int i = 0; i < bankInventoryColumnNumber; i++)
@@ -61,16 +64,28 @@ public class PanelBankInventory : MonoBehaviour
 
     void createPlayerInventory()
     {
-        for (int i = 1; i <= playerInventoryColumnNumber; i++)
+        //On recupere les donnees de l'objet Player:
+        int playerInventoryLineNumber = player.getPlayerInventoryLineNumber();
+        int playerInventoryColumnNumber = player.getPlayerInventoryColumnNumber();
+
+        playerInventoryButton = new GameObject[playerInventoryColumnNumber * playerInventoryLineNumber];
+
+        for (int i = 0; i < playerInventoryColumnNumber; i++)
         {
-            for (int j = 1; j <= playerInventoryLineNumber; j++)
+            for (int j = 0; j < playerInventoryLineNumber; j++)
             {
+                int id = (j * playerInventoryColumnNumber) + i;
+
+                //On crée les boutons de l'inventaire:
                 GameObject buttonItem = (GameObject)Instantiate(buttonItemPrefab);
                 buttonItem.transform.SetParent(panelPlayerInventory.transform);
+                buttonItem.name = "buttonItem" + (id);
                 buttonItem.GetComponent<Button>().onClick.AddListener(clickItemPlayerInventory);
-                
-                buttonItem.transform.GetChild(0).GetComponent<Text>().text = "" + (i-1);
-                buttonItem.transform.localPosition = new Vector2(30 * i, -30 * j);
+                buttonItem.transform.GetChild(0).GetComponent<Text>().text = "" + id;
+                buttonItem.transform.localPosition = new Vector2(30 * (i+1), -30 * (j+1));
+
+                //On stocke les boutons dans un tableau:
+                playerInventoryButton[id] = buttonItem;
             }
         }
     }
@@ -88,7 +103,6 @@ public class PanelBankInventory : MonoBehaviour
     private void updateBankInventory()
     {
         //On recupere le tableau d'objets de la banque:
-        Bank bank = EntitiesController.INSTANCE.getBank();
         UsableObject[] bankInventory = bank.getBankInventory();
 
         //On parcours le tableau d'objets de la banque:
@@ -109,6 +123,33 @@ public class PanelBankInventory : MonoBehaviour
             {
                 //bankInventoryButton[i].transform.GetChild(0).GetComponent<Text>().text = "N";
                 bankInventoryButton[i].GetComponent<Image>().sprite = spriteEmptySlot;
+            }
+        }
+    }
+
+    private void updatePlayerInventory()
+    {
+        //On recupere le tableau d'objets du joueur:
+        UsableObject[] playerInventory = player.getPlayerInventory();
+
+        //On parcours le tableau d'objets de la banque:
+        for (int i = 0; i < playerInventory.Length; i++)
+        {
+            //On on a un objet:
+            if (playerInventory[i] != null)
+            {
+                //On recupere ses infos:
+                int id = playerInventory[i].getObjectId();
+                Sprite objectSprite = playerInventory[i].getObjectSprite();
+
+                //On met a jour le bouton correspondant dans l'UI:
+                //playerInventoryButton[i].transform.GetChild(0).GetComponent<Text>().text = ""+id;
+                playerInventoryButton[i].GetComponent<Image>().sprite = objectSprite;
+            }
+            else
+            {
+                //bankInventoryButton[i].transform.GetChild(0).GetComponent<Text>().text = "N";
+                playerInventoryButton[i].GetComponent<Image>().sprite = spriteEmptySlot;
             }
         }
     }

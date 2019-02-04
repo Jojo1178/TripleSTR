@@ -6,6 +6,8 @@ public class EntitiesController : MonoBehaviour
 {
     public static EntitiesController INSTANCE;
 
+    public GameObject player;
+
     public GameObject bank;
     public GameObject well;
     public GameObject door;
@@ -39,5 +41,10 @@ public class EntitiesController : MonoBehaviour
     public TownHall getTownHall()
     {
         return townHall.GetComponent<TownHall>();
+    }
+
+    public Player getPlayer()
+    {
+        return player.GetComponent<Player>();
     }
 }

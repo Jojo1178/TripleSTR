@@ -8,12 +8,25 @@ public class Player : Unit
 
     public NavMeshAgent navMeshAgent;
 
+    private int playerInventoryLineNumber = 1;
+    private int playerInventoryColumnNumber = 6;
+
+    private int playerInventorySize;
+    private UsableObject[] playerInventory;
+
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
         Debug.Log("Player start");
         this.setName("PLAYER");
+
+        playerInventorySize = playerInventoryLineNumber * playerInventoryColumnNumber;
+        playerInventory = new UsableObject[playerInventorySize];
+
+        //FOR TEST PURPOSE:
+        O_WaterBottle waterBottle = new O_WaterBottle(0, "Water Bottle", "O_WaterBottle");
+        playerInventory[2] = waterBottle;
     }
 
     private void Update()
@@ -38,5 +51,20 @@ public class Player : Unit
         {
             this.navMeshAgent.isStopped = false;
         }
+    }
+
+    public UsableObject[] getPlayerInventory()
+    {
+        return this.playerInventory;
+    }
+
+    public int getPlayerInventoryLineNumber()
+    {
+        return playerInventoryLineNumber;
+    }
+
+    public int getPlayerInventoryColumnNumber()
+    {
+        return playerInventoryColumnNumber;
     }
 }

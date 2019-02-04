@@ -3540,6 +3540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d4e23fa1ed3904a94c99e2fd4a756e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 564799595}
   bank: {fileID: 914136726}
   well: {fileID: 1738694079}
   door: {fileID: 338959650}

@@ -42,4 +42,14 @@ public class Bank : PermanentBuilding, ISelectionableEntity
     {
         return this.bankInventory;
     }
+
+    public int getBankInventoryLineNumber()
+    {
+        return bankInventoryLineNumber;
+    }
+
+    public int getBankInventoryColumnNumber()
+    {
+        return bankInventoryColumnNumber;
+    }
 }
