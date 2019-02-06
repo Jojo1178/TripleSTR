@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelBankInventory : MonoBehaviour
+public class PanelBank : MonoBehaviour
 {
     public GameObject buttonItemPrefab;
     public GameObject panelBankInventory;
