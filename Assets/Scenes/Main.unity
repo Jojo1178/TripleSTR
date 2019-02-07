@@ -1265,7 +1265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b42e01e2372384ea78a31b8881c131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScreenEdgeBorderThickness: 5
+  ScreenEdgeBorderThickness: 20
   CameraMode: 0
   minPanSpeed: 0
   maxPanSpeed: 10
@@ -2984,7 +2984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.2830189, g: 0.26833394, b: 0.26833394, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
