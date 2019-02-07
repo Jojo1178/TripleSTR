@@ -96,12 +96,18 @@ public class PanelWell : MonoBehaviour
 
     public void clickOnGetWater(int id)
     {
-        well.takeWater();
-
-        //On vérifie la quantité d'eau restante dans le puit:
-        //On crée un nouvel objet:
-        //On l'ajoute dans l'inventaire du joueur:
-        //On diminue la quantité d'eau restante dans le puit d'une unité:
-        //On vérifie le cycle jour/nuit:
+        O_WaterBottle waterBottle = well.getWaterFromWell();
+        if (waterBottle != null)
+        {
+            bool objectAdded = player.addObjectToPlayerInventory(waterBottle);
+            if (!objectAdded)
+            {
+                Debug.Log("Plus de place dans l'inventaire.");
+            }
+        }
+        else
+        {
+            Debug.Log("Plus d'eau dans le puit.");
+        }
     }
 }

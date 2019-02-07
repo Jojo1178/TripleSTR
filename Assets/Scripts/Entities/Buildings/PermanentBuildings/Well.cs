@@ -33,8 +33,18 @@ public class Well : PermanentBuilding, ISelectionableEntity
         return this.waterCurrentQuantity;
     }
 
-    public void takeWater()
+    public O_WaterBottle getWaterFromWell()
     {
-        this.waterCurrentQuantity--;
+        if (waterCurrentQuantity > 0)
+        {
+            O_WaterBottle waterBottle = new O_WaterBottle(0, "Water Bottle", "O_WaterBottle");
+            waterCurrentQuantity--;
+
+            return waterBottle;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
