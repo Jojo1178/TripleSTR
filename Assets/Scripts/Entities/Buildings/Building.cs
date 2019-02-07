@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class Building : SpawnableEntity, ISelectionableEntity
 {
     public NavMeshObstacle navMeshObstacle;
+    public Transform[] entryPoints;
 
     private Texture2D cursorTexture;
 
@@ -28,6 +27,13 @@ public class Building : SpawnableEntity, ISelectionableEntity
     public void clicked(int mouseInput, RaycastHit hit)
     {
         Debug.Log("BUILDING SELECTED (" + mouseInput + ")");
+
+        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position),this.PlayerReachBuildingEntrance);
+
+    }
+
+    private void PlayerReachBuildingEntrance()
+    {
         UIManager.INSTANCE.BuildingSelected(this);
     }
 
@@ -45,5 +51,22 @@ public class Building : SpawnableEntity, ISelectionableEntity
     public void setCursorTexture(Texture2D cursorTexture)
     {
         this.cursorTexture = cursorTexture;
+    }
+
+    private Vector3 getClosestEntryPoint(Vector3 point)
+    {
+        float minDistance = float.MaxValue;
+        float distance;
+        Vector3 closest = point;
+        foreach (Transform t in this.entryPoints)
+        {
+            distance = Vector3.Distance(point, t.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closest = t.position;
+            }
+        }
+        return closest;
     }
 }

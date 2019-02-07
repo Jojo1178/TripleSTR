@@ -87,6 +87,7 @@ public class UIManager : MonoBehaviour
 
     public void quitPanelBuildings()
     {
+        Debug.Log("QUITTTT");
         panelWell.SetActive(false);
         panelDoor.SetActive(false);
         panelBank.SetActive(false);

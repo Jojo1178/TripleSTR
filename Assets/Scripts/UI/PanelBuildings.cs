@@ -18,6 +18,7 @@ public class PanelBuildings : MonoBehaviour
 
     public void quitPanelBuildings()
     {
+        Debug.Log("Quit");
         UIManager.INSTANCE.quitPanelBuildings();
     }
 }

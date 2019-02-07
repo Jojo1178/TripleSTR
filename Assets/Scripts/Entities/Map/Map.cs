@@ -27,7 +27,7 @@ public class Map : MonoBehaviour, ISelectionableEntity
         if (mouseInput == 1)
         {
             // Clique droit sur la carte, on bouge le joueur
-            ApplicationController.INSTANCE.MainPlayer.Move(hit);
+            ApplicationController.INSTANCE.MainPlayer.Move(hit.point);
         }
     }
 
