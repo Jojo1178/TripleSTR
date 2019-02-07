@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class Building : SpawnableEntity, ISelectionableEntity
 {
@@ -32,7 +33,8 @@ public class Building : SpawnableEntity, ISelectionableEntity
 
     void OnMouseOver()
     {
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        if(!EventSystem.current.IsPointerOverGameObject())
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     void OnMouseExit()

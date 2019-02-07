@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MouseInputManager : MonoBehaviour
@@ -14,7 +15,7 @@ public class MouseInputManager : MonoBehaviour
         this._mouseInput = GetMouseInput();
 
         //On vérifie si il y a eu un clic de la souris:
-        if (this._mouseInput != -1)
+        if (this._mouseInput != -1 && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit, 100.0f))
