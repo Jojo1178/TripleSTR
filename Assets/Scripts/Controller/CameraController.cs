@@ -141,8 +141,8 @@ public class CameraController : MonoBehaviour
         float heightPanValue = Input.GetAxis("HeightPan");
 
         bool moveForward = lengthPanValue > 0 || (Input.mousePosition.y >= Screen.height - this.ScreenEdgeBorderThickness && Input.mousePosition.y <= Screen.height);
-        bool moveBackward = lengthPanValue < 0 || (Input.mousePosition.y <= this.ScreenEdgeBorderThickness && Input.mousePosition.y <= 0);
-        bool moveLeft = widthPanValue < 0 || (Input.mousePosition.x <= this.ScreenEdgeBorderThickness && Input.mousePosition.x <= 0);
+        bool moveBackward = lengthPanValue < 0 || (Input.mousePosition.y <= this.ScreenEdgeBorderThickness && Input.mousePosition.y >= 0);
+        bool moveLeft = widthPanValue < 0 || (Input.mousePosition.x <= this.ScreenEdgeBorderThickness && Input.mousePosition.x >= 0);
         bool moveRight = widthPanValue > 0 || (Input.mousePosition.x >= Screen.width - this.ScreenEdgeBorderThickness && Input.mousePosition.x <= Screen.width);
         bool moveUp = heightPanValue < 0;
         bool moveDown = heightPanValue > 0;
