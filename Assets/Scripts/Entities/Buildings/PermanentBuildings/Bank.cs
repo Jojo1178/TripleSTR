@@ -25,11 +25,14 @@ public class Bank : PermanentBuilding, ISelectionableEntity
         O_WaterBottle waterBottle = new O_WaterBottle(0, "Water Bottle", "O_WaterBottle");
         bankInventory[0] = waterBottle;
 
-        O_WaterBottle waterBottle2 = new O_WaterBottle(2, "Water Bottle", "O_WaterBottle");
+        O_WaterBottle waterBottle2 = new O_WaterBottle(0, "Water Bottle", "O_WaterBottle");
         bankInventory[1] = waterBottle2;
 
-        O_WoodenPlank woodenPlank10 = new O_WoodenPlank(10, "Wooden Plank", "O_WoodenPlank");
-        bankInventory[3] = woodenPlank10;
+        O_WoodenPlank woodenPlank = new O_WoodenPlank(0, "Wooden Plank", "O_WoodenPlank");
+        bankInventory[3] = woodenPlank;
+
+        O_MetalScrap metalScrap = new O_MetalScrap(0, "Metal Scrap", "O_MetalScrap");
+        bankInventory[4] = metalScrap;
     }
 
     // Update is called once per frame
