@@ -29,7 +29,7 @@ public class Player : Unit
         playerInventory = new UsableObject[playerInventorySize];
 
         //FOR TEST PURPOSE:
-        O_WaterBottle waterBottle = new O_WaterBottle(0, "Water Bottle", "O_WaterBottle");
+        O_WaterBottle waterBottle = new O_WaterBottle(0);
         playerInventory[2] = waterBottle;
     }
 

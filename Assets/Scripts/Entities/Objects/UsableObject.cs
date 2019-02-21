@@ -6,18 +6,17 @@ using UnityEngine.UI;
 public abstract class UsableObject
 {
     private int objectId;
-    private string objectName;
+    protected string objectName;
+    protected string objectSpriteName;
+
     private Sprite objectSprite;
 
-    public UsableObject(int id, string objectName, string objectSpriteName)
+    public UsableObject(int id)
     {
         this.objectId = id;
-        this.objectName = objectName;
-
-        instanciateObjectImage(objectSpriteName);
     }
 
-    private void instanciateObjectImage(string objectSpriteName)
+    protected void instanciateObjectImage()
     {
         this.objectSprite = Resources.Load<Sprite>("Objects/"+ objectSpriteName);
         if (this.objectSprite == null)

@@ -3745,7 +3745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000013350795}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1398476134
@@ -5093,7 +5093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1897290077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5111,7 +5111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1897290078
@@ -5128,6 +5128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   content: {fileID: 1398476132}
   panelBuildingDetailsPrefab: {fileID: 61801877994417893, guid: 29486c18f4b991349841b7f7f663e558,
+    type: 3}
+  panelResourcesNeedeedPrefab: {fileID: 7356440402792612980, guid: d494e7d32ea5f9e47bbe342b1b7c9469,
     type: 3}
   imageGrandFosse: {fileID: 21300000, guid: b165545d2d001854488bc8791824c25f, type: 3}
   imageTourDeGuet: {fileID: 21300000, guid: 6a66acc11fd81db409d7b3e1798ad002, type: 3}

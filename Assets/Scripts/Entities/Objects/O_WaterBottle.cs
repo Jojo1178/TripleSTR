@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class O_WaterBottle : UsableObject
 {
-    public O_WaterBottle(int id, string objectName, string objectSprite) : base (id, objectName, objectSprite)
+    public O_WaterBottle(int id) : base(id)
     {
-        
+        objectName = "Water Bottle";
+        objectSpriteName = "O_WaterBottle";
+        base.instanciateObjectImage();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,16 +23,16 @@ public class Bank : PermanentBuilding, ISelectionableEntity
         bankInventory = new UsableObject[bankInventorySize];
 
         //FOR TEST PURPOSE:
-        O_WaterBottle waterBottle = new O_WaterBottle(0, "Water Bottle", "O_WaterBottle");
+        O_WaterBottle waterBottle = new O_WaterBottle(0);
         bankInventory[0] = waterBottle;
 
-        O_WaterBottle waterBottle2 = new O_WaterBottle(0, "Water Bottle", "O_WaterBottle");
+        O_WaterBottle waterBottle2 = new O_WaterBottle(0);
         bankInventory[1] = waterBottle2;
 
-        O_WoodenPlank woodenPlank = new O_WoodenPlank(0, "Wooden Plank", "O_WoodenPlank");
+        O_WoodenPlank woodenPlank = new O_WoodenPlank(0);
         bankInventory[3] = woodenPlank;
 
-        O_MetalScrap metalScrap = new O_MetalScrap(0, "Metal Scrap", "O_MetalScrap");
+        O_MetalScrap metalScrap = new O_MetalScrap(0);
         bankInventory[4] = metalScrap;
     }
 
@@ -52,6 +53,29 @@ public class Bank : PermanentBuilding, ISelectionableEntity
             }
         }
         return false;
+    }
+
+    public bool areResourcesAvailable(List<Tuple<UsableObject, int>> resourceList)
+    {
+        foreach (Tuple<UsableObject, int> resourceTuple in resourceList)
+        {
+            UsableObject usableObject = resourceTuple.Item1;
+            int quantityNeeded = resourceTuple.Item2;
+
+            int quantityFound = 0;
+            for (int i = 0; i < bankInventory.Length; i++)
+            {
+                if (bankInventory[i].Equals(usableObject))
+                {
+                    quantityFound++;
+                }
+            }
+            if (quantityFound < quantityNeeded)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void removeObjectFromBankInventory(int inventoryId)

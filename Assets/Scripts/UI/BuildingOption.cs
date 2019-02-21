@@ -11,10 +11,12 @@ public class BuildingOption : MonoBehaviour
     public Image imageBuildingIcon;
     public Text textBuildingName;
     public Button buttonBuild;
-    
+    private List<PanelResourceNeeded> panelResourcesNeededList = new List<PanelResourceNeeded>();
+
+    //Gameplay:
     private bool built;
     private bool resourcesAvailable;
-    private bool prerequisitesBuilt;
+    private List<Tuple<UsableObject, int>> resourceList = new List<Tuple<UsableObject, int>>();
 
     //Values in UI components:
     private BuildingOption prerequisite;
@@ -35,7 +37,6 @@ public class BuildingOption : MonoBehaviour
     {
         built = false;
         resourcesAvailable = false;
-        prerequisitesBuilt = false;
         buttonBuild.interactable = false;
     }
 
@@ -43,7 +44,7 @@ public class BuildingOption : MonoBehaviour
     void Update()
     {
         updatePrerequisites();
-        updateBackgroundColor();
+        //updateBackgroundColor();
     }
 
     // ==================
@@ -73,13 +74,11 @@ public class BuildingOption : MonoBehaviour
     
     private void updatePrerequisites()
     {
-        if (prerequisite)
+        buttonBuild.interactable = true; //for test purposes
+
+        if (resourcesAvailable)
         {
-            if (prerequisite.isBuilt())
-            {
-                prerequisitesBuilt = true;
-                buttonBuild.interactable = true;
-            }
+            buttonBuild.interactable = true;
         }
     }
 
@@ -96,10 +95,19 @@ public class BuildingOption : MonoBehaviour
     // = UI CREATION =
     // ===============
 
-    public void createUI()
+    public void populateUI()
     {
         textBuildingName.text = this.buildingName;
         imageBuildingIcon.sprite = this.buildingSprite;
+
+        for (int i = 0; i < panelResourcesNeededList.Count; i++)
+        {
+            Tuple<UsableObject, int> resource = resourceList[i];
+            PanelResourceNeeded panelResourcesNeedeed = panelResourcesNeededList[i];
+
+            panelResourcesNeedeed.imageResourceNeedeed.sprite = resource.Item1.getObjectSprite();
+            panelResourcesNeedeed.textResourceQuantity.text = "/ " + resource.Item2.ToString();
+        }
     }
 
     // ===================
@@ -124,5 +132,15 @@ public class BuildingOption : MonoBehaviour
     public bool isBuilt()
     {
         return this.built;
+    }
+
+    public void addResource(UsableObject resource, int quantity)
+    {
+        this.resourceList.Add(new Tuple<UsableObject, int>(resource, quantity));
+    }
+
+    public void addPanelResourcesNeeded(PanelResourceNeeded panelResourcesNeeded)
+    {
+        this.panelResourcesNeededList.Add(panelResourcesNeeded);
     }
 }
