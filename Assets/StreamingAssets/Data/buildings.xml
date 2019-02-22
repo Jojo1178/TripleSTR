@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<buildings>
+	<building>
+		<name>Grand Fosse</name>
+    <Image>Buildings/Grand_Fosse</Image>
+    <resources>
+      <resource quantity='1'>O_WoodenPlank</resource>
+      <resource quantity='2'>O_MetalScrap</resource>
+    </resources>
+	</building>
+	<building>
+		<name>Tour de Guet</name>
+    <Image>Buildings/Tour_De_Guet</Image>
+    <resources>
+      <resource quantity='3'>O_WoodenPlank</resource>
+    </resources>
+	</building>
+</buildings>
