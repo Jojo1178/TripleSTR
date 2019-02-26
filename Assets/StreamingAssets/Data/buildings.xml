@@ -12,7 +12,7 @@
 		<name>Tour de Guet</name>
     <Image>Buildings/Tour_De_Guet</Image>
     <resources>
-      <resource quantity='3'>O_WoodenPlank</resource>
+      <resource quantity='5'>O_WaterBottle</resource>
     </resources>
 	</building>
   <building>

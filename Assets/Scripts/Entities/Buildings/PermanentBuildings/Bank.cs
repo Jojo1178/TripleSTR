@@ -84,6 +84,24 @@ public class Bank : PermanentBuilding, ISelectionableEntity
         return true;
     }
 
+    public int getNumberOfObjectInBankInventory(UsableObject usableObject)
+    {
+        int numberInBank = 0;
+
+        for (int i = 0; i < bankInventory.Length; i++)
+        {
+            if (bankInventory[i] != null)
+            {
+                if (bankInventory[i].GetType().Equals(usableObject.GetType()))
+                {
+                    numberInBank++;
+                }
+            }
+        }
+
+        return numberInBank;
+    }
+
     public void removeObjectFromBankInventory(int inventoryId)
     {
         bankInventory[inventoryId] = null;

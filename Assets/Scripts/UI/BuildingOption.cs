@@ -46,6 +46,7 @@ public class BuildingOption : MonoBehaviour
     void Update()
     {
         updatePrerequisites();
+        updateQuantityAvailable();
         //updateBackgroundColor();
     }
 
@@ -74,6 +75,7 @@ public class BuildingOption : MonoBehaviour
         }
     }
     
+    //Check if all resources of the BuildingOption are available in Bank inventory:
     private void updatePrerequisites()
     {
         resourcesAvailable = bank.areResourcesAvailable(resourceList);
@@ -82,6 +84,20 @@ public class BuildingOption : MonoBehaviour
         {
             buttonBuild.interactable = true;
         } 
+    }
+    
+    private void updateQuantityAvailable()
+    {
+        for (int i = 0; i < panelResourcesNeededList.Count; i++)
+        {
+            Tuple<UsableObject, int> resource = resourceList[i];
+            PanelResourceNeeded panelResourcesNeedeed = panelResourcesNeededList[i];
+
+            UsableObject objectToCheck = resource.Item1;
+            
+            int bankQuantity = bank.getNumberOfObjectInBankInventory(objectToCheck);
+            panelResourcesNeedeed.textResourceQuantity.text = bankQuantity+" / " + resource.Item2.ToString();
+        }    
     }
 
     // ============
