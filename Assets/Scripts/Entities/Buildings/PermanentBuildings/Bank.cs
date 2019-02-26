@@ -34,6 +34,9 @@ public class Bank : PermanentBuilding, ISelectionableEntity
 
         O_MetalScrap metalScrap = new O_MetalScrap(0);
         bankInventory[4] = metalScrap;
+
+        O_Concrete concrete = new O_Concrete(0);
+        bankInventory[5] = concrete;
     }
 
     // Update is called once per frame
@@ -65,9 +68,12 @@ public class Bank : PermanentBuilding, ISelectionableEntity
             int quantityFound = 0;
             for (int i = 0; i < bankInventory.Length; i++)
             {
-                if (bankInventory[i].Equals(usableObject))
+                if (bankInventory[i] != null)
                 {
-                    quantityFound++;
+                    if (bankInventory[i].GetType().Equals(usableObject.GetType()))
+                    {
+                        quantityFound++;
+                    }
                 }
             }
             if (quantityFound < quantityNeeded)

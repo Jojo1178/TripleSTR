@@ -17,6 +17,7 @@ public class BuildingOption : MonoBehaviour
     private bool built;
     private bool resourcesAvailable;
     private List<Tuple<UsableObject, int>> resourceList = new List<Tuple<UsableObject, int>>();
+    private Bank bank;
 
     //Values in UI components:
     private BuildingOption prerequisite;
@@ -38,6 +39,7 @@ public class BuildingOption : MonoBehaviour
         built = false;
         resourcesAvailable = false;
         buttonBuild.interactable = false;
+        bank = EntitiesController.INSTANCE.getBank();
     }
 
     // Update is called once per frame
@@ -74,12 +76,12 @@ public class BuildingOption : MonoBehaviour
     
     private void updatePrerequisites()
     {
-        buttonBuild.interactable = true; //for test purposes
+        resourcesAvailable = bank.areResourcesAvailable(resourceList);
 
         if (resourcesAvailable)
         {
             buttonBuild.interactable = true;
-        }
+        } 
     }
 
     // ============
