@@ -63,4 +63,10 @@ public class House : PermanentBuilding, ISelectionableEntity
     {
         return houseInventoryColumnNumber;
     }
+
+    protected override void PlayerReachBuildingEntrance()
+    {
+        base.PlayerReachBuildingEntrance();
+        UIManager.INSTANCE.openHousePanel();
+    }
 }

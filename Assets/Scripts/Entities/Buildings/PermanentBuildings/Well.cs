@@ -47,4 +47,10 @@ public class Well : PermanentBuilding, ISelectionableEntity
             return null;
         }
     }
+
+    protected override void PlayerReachBuildingEntrance()
+    {
+        base.PlayerReachBuildingEntrance();
+        UIManager.INSTANCE.openWellPanel();
+    }
 }

@@ -27,6 +27,8 @@ public class BuildingSlot
     public string Name { get; set; }
     [XmlElement(ElementName = "Image")]
     public string Image { get; set; }
+    [XmlElement(ElementName = "prefab")]
+    public string Prefab { get; set; }
     [XmlElement(ElementName = "resources")]
     public BuildingResources Resources { get; set; }
 }

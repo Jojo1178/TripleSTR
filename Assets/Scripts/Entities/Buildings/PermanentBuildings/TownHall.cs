@@ -16,4 +16,10 @@ public class TownHall : PermanentBuilding, ISelectionableEntity
     {
         
     }
+
+    protected override void PlayerReachBuildingEntrance()
+    {
+        base.PlayerReachBuildingEntrance();
+        UIManager.INSTANCE.openTownHallPanel();
+    }
 }

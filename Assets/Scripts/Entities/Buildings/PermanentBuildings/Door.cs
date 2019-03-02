@@ -16,4 +16,10 @@ public class Door : PermanentBuilding, ISelectionableEntity
     {
         
     }
+
+    protected override void PlayerReachBuildingEntrance()
+    {
+        base.PlayerReachBuildingEntrance();
+        UIManager.INSTANCE.openDoorPanel();
+    }
 }

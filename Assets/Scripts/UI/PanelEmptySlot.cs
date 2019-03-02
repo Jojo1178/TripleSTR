@@ -11,7 +11,6 @@ public class PanelEmptySlot : MonoBehaviour
     public GameObject panelBuildingDetailsPrefab;
     public GameObject panelResourcesNeedeedPrefab;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +37,9 @@ public class PanelEmptySlot : MonoBehaviour
         GameObject panelBuildingDetails = (GameObject)Instantiate(panelBuildingDetailsPrefab);
         panelBuildingDetails.transform.SetParent(content.transform);
         BuildingOption buildingOption = panelBuildingDetails.GetComponent<BuildingOption>();
-        
 
         //Get the BuildingOption script and set Gameplay values:
+        buildingOption.buildingSlotInfos = bs;
         buildingOption.setBuildingName(bs.Name);
         buildingOption.setBuildingSprite(Resources.Load<Sprite>(bs.Image));
 

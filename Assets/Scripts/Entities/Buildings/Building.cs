@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
@@ -23,16 +24,18 @@ public class Building : SpawnableEntity, ISelectionableEntity
     {
         
     }
-    
+
     public void clicked(int mouseInput, RaycastHit hit)
     {
-        Debug.Log("BUILDING SELECTED (" + mouseInput + ")");
-
-        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position),this.PlayerReachBuildingEntrance);
+        Debug.Log("BUILDING SELECTED (" + mouseInput + ")" + this.GetType());
+        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position), () =>
+        {
+            this.PlayerReachBuildingEntrance();
+        });
 
     }
 
-    private void PlayerReachBuildingEntrance()
+    protected virtual void PlayerReachBuildingEntrance()
     {
         UIManager.INSTANCE.BuildingSelected(this);
     }

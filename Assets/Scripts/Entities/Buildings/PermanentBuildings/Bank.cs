@@ -121,4 +121,10 @@ public class Bank : PermanentBuilding, ISelectionableEntity
     {
         return bankInventoryColumnNumber;
     }
+
+    protected override void PlayerReachBuildingEntrance()
+    {
+        base.PlayerReachBuildingEntrance();
+        UIManager.INSTANCE.openBankPanel();
+    }
 }

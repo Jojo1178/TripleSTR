@@ -58,6 +58,7 @@ public class Player : Unit
             if (!this.navMeshAgent.hasPath || Mathf.Abs(this.navMeshAgent.velocity.sqrMagnitude) < float.Epsilon)
             {
                 this.navMeshAgent.isStopped = true;
+                this.navMeshAgent.destination = this.transform.position;
                 this.DestinationReachedDelegate?.Invoke();
                 this.DestinationReachedDelegate = null;
             }

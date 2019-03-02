@@ -17,6 +17,7 @@
 	</building>
   <building>
     <name>Blindage d'entree</name>
+    <prefab>Wall</prefab>
     <Image>Buildings/Blindage_D_Entree</Image>
     <resources>
       <resource quantity='1'>O_MetalScrap</resource>

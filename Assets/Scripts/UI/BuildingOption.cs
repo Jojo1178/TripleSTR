@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BuildingOption : MonoBehaviour
 {
     //Panel and its UI components:
-    public GameObject panelBuildingOption;
+    public BuildingSlot buildingSlotInfos;
     public Image imageBuildingIcon;
     public Text textBuildingName;
     public Button buttonBuild;
@@ -56,7 +56,7 @@ public class BuildingOption : MonoBehaviour
 
     private void updateBackgroundColor()
     {
-        Image panelBackgroundColor = panelBuildingOption.GetComponent<Image>();
+        Image panelBackgroundColor = this.GetComponent<Image>();
 
         if (built)
         {
@@ -106,7 +106,10 @@ public class BuildingOption : MonoBehaviour
 
     public void clickBuild()
     {
+        //TOOD: replace by prefabs
         Debug.Log("BUILD " + buildingName);
+        EntitiesController.INSTANCE.Build(this.buildingSlotInfos);
+        UIManager.INSTANCE.quitPanelBuildings();
     }
 
     // ===============

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class EntitiesController : MonoBehaviour
     public GameObject door;
     public GameObject townHall;
     public GameObject house;
+
+    [HideInInspector]
+    public Building lastSelectedBuilding;
 
     public EntitiesController()
     {
@@ -52,5 +56,25 @@ public class EntitiesController : MonoBehaviour
     public House getHouse()
     {
         return house.GetComponent<House>();
+    }
+
+    public void Build(BuildingSlot buildingSlotInfos)
+    {
+        GameObject bulidingToBuild = null;
+        if (buildingSlotInfos.Prefab != null)
+        {
+            bulidingToBuild = Resources.Load<GameObject>("BuildingPrefabs/" + buildingSlotInfos.Prefab);
+        }
+
+        if (bulidingToBuild != null)
+        {
+            GameObject building = GameObject.Instantiate(bulidingToBuild);
+            building.transform.position = this.lastSelectedBuilding.transform.position;
+            GameObject.Destroy(this.lastSelectedBuilding.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("Prefab not found for " + buildingSlotInfos.Name);
+        }
     }
 }

@@ -16,4 +16,10 @@ public class EmptySlotBuilding : Building
     {
         
     }
+
+    protected override void PlayerReachBuildingEntrance()
+    {
+        base.PlayerReachBuildingEntrance();
+        UIManager.INSTANCE.openEmptySlotPanel();
+    }
 }
