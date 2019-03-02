@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public GameObject panelBank;
     public GameObject panelTownHall;
     public GameObject panelEmptySlot;
+    public GameObject panelHouse;
 
     private void Awake()
     {
@@ -41,6 +42,9 @@ public class UIManager : MonoBehaviour
                 break;
             case "Well":
                 this.wellSelected();
+                break;
+            case "House":
+                this.houseSelected();
                 break;
             case "Empty Slot":
                 this.emptySlot();
@@ -80,6 +84,11 @@ public class UIManager : MonoBehaviour
         panelDoor.SetActive(true);
     }
 
+    private void houseSelected()
+    {
+        panelHouse.SetActive(true);
+    }
+
     private void emptySlot()
     {
         panelEmptySlot.SetActive(true);
@@ -91,6 +100,7 @@ public class UIManager : MonoBehaviour
         panelDoor.SetActive(false);
         panelBank.SetActive(false);
         panelTownHall.SetActive(false);
+        panelHouse.SetActive(false);
         panelEmptySlot.SetActive(false);
 
         panelBuildings.SetActive(false);

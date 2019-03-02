@@ -52,7 +52,6 @@ public class PanelBank : MonoBehaviour
                 GameObject buttonItem = (GameObject)Instantiate(buttonItemPrefab);
                 buttonItem.transform.SetParent(panelBankInventory.transform);
                 buttonItem.name = "buttonItem" + (id);
-                //buttonItem.transform.GetChild(0).GetComponent<Text>().text = "" + id;
                 buttonItem.transform.localPosition = new Vector2(30 * (i+1), -30 * (j+1));
                 buttonItem.GetComponent<Button>().onClick.AddListener(delegate{clickItemBankInventory(id);});
 
@@ -150,7 +149,7 @@ public class PanelBank : MonoBehaviour
         UsableObject clickedObject = bank.getBankInventory()[id];
         bool objectAdded = player.addObjectToPlayerInventory(clickedObject);
 
-        //Si l'object a bien pu être ajouté, on le retire de l'inventaire du joueur:
+        //Si l'object a bien pu être ajouté, on le retire de l'inventaire de la banque:
         if (objectAdded)
         {
             bank.removeObjectFromBankInventory(id);
@@ -163,7 +162,7 @@ public class PanelBank : MonoBehaviour
         UsableObject clickedObject = player.getPlayerInventory()[id];
         bool objectAdded = bank.addObjectToBankInventory(clickedObject);
 
-        //Si l'object a bien pu être ajouté, on le retire de l'inventaire de la banque:
+        //Si l'object a bien pu être ajouté, on le retire de l'inventaire du joueur:
         if (objectAdded)
         {
             player.removeObjectFromPlayerInventory(id);

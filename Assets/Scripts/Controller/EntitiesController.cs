@@ -12,6 +12,7 @@ public class EntitiesController : MonoBehaviour
     public GameObject well;
     public GameObject door;
     public GameObject townHall;
+    public GameObject house;
 
     public EntitiesController()
     {
@@ -46,5 +47,10 @@ public class EntitiesController : MonoBehaviour
     public Player getPlayer()
     {
         return player.GetComponent<Player>();
+    }
+
+    public House getHouse()
+    {
+        return house.GetComponent<House>();
     }
 }
