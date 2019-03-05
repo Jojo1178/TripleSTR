@@ -23,20 +23,22 @@ public class Bank : PermanentBuilding, ISelectionableEntity
         bankInventory = new UsableObject[bankInventorySize];
 
         //FOR TEST PURPOSE:
-        O_WaterBottle waterBottle = new O_WaterBottle(0);
-        bankInventory[0] = waterBottle;
-
-        O_WaterBottle waterBottle2 = new O_WaterBottle(0);
-        bankInventory[1] = waterBottle2;
-
-        O_WoodenPlank woodenPlank = new O_WoodenPlank(0);
-        bankInventory[3] = woodenPlank;
-
-        O_MetalScrap metalScrap = new O_MetalScrap(0);
-        bankInventory[4] = metalScrap;
-
         O_Concrete concrete = new O_Concrete(0);
-        bankInventory[5] = concrete;
+        this.addObjectToBankInventory(concrete);
+        O_CopperTube coppertube = new O_CopperTube(0);
+        this.addObjectToBankInventory(coppertube);
+        O_ElectronicComponent electronicComponent = new O_ElectronicComponent(0);
+        this.addObjectToBankInventory(electronicComponent);
+        O_MetalScrap metalScrap = new O_MetalScrap(0);
+        this.addObjectToBankInventory(metalScrap);
+        O_Screws screws = new O_Screws(0);
+        this.addObjectToBankInventory(screws);
+        O_SteelPlate steelPlate = new O_SteelPlate(0);
+        this.addObjectToBankInventory(steelPlate);
+        O_WaterBottle waterBottle = new O_WaterBottle(0);
+        this.addObjectToBankInventory(waterBottle);
+        O_WoodenPlank woodenPlank = new O_WoodenPlank(0);
+        this.addObjectToBankInventory(woodenPlank);
     }
 
     // Update is called once per frame
