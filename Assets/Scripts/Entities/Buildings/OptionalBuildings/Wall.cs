@@ -9,6 +9,5 @@ public class Wall : OptionalBuilding, ISelectionableEntity
         base.Start();
         Debug.Log("---> WALL");
         this.setName("Wall");
-        this.StartConstruction();
     }
 }

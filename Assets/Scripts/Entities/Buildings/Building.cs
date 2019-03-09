@@ -19,16 +19,10 @@ public class Building : SpawnableEntity, ISelectionableEntity
         this.cursorTexture = Resources.Load<Texture2D>("Cursors/cursor_goInside");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void clicked(int mouseInput, RaycastHit hit)
+    public virtual void clicked(int mouseInput, RaycastHit hit)
     {
         Debug.Log("BUILDING SELECTED (" + mouseInput + ")" + this.GetType());
-        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position), () =>
+        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position), (player) =>
         {
             this.PlayerReachBuildingEntrance();
         });
@@ -56,7 +50,7 @@ public class Building : SpawnableEntity, ISelectionableEntity
         this.cursorTexture = cursorTexture;
     }
 
-    private Vector3 getClosestEntryPoint(Vector3 point)
+    protected Vector3 getClosestEntryPoint(Vector3 point)
     {
         float minDistance = float.MaxValue;
         float distance;

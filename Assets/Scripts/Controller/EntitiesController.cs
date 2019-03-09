@@ -71,6 +71,8 @@ public class EntitiesController : MonoBehaviour
             GameObject building = GameObject.Instantiate(bulidingToBuild);
             building.transform.position = this.lastSelectedBuilding.transform.position;
             GameObject.Destroy(this.lastSelectedBuilding.gameObject);
+            OptionalBuilding ob = building.GetComponent<OptionalBuilding>();
+            ob.InitBuilding(ApplicationController.INSTANCE.MainPlayer);
         }
         else
         {

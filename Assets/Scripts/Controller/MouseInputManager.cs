@@ -30,6 +30,11 @@ public class MouseInputManager : MonoBehaviour
                 {
                     selectionableEntity.clicked(this._mouseInput, hit);
                 }
+                IWorkingEntity workingEntity = selectedGameObject.GetComponentInParent<IWorkingEntity>();
+                if(workingEntity != null)
+                {
+                    workingEntity.clicked(this._mouseInput, hit);
+                }
             }
         }
     }

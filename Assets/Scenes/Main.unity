@@ -1738,6 +1738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScreenEdgeBorderThickness: 100
   CameraMode: 0
+  MouseBorderMovement: 0
   minPanSpeed: 0
   maxPanSpeed: 10
   secToMaxSpeed: 1

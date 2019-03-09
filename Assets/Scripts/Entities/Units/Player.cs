@@ -15,8 +15,11 @@ public class Player : Unit
     private int playerInventorySize;
     private UsableObject[] playerInventory;
 
-    private delegate void OnDestinationReached();
+    private delegate void OnDestinationReached(Player sender);
     private event OnDestinationReached DestinationReachedDelegate;
+
+    public delegate void OnPlayerStartMoving(Player sender);
+    public event OnPlayerStartMoving PlayerStartMovingDelegate;
 
     // Start is called before the first frame update
     new void Start()
@@ -38,7 +41,7 @@ public class Player : Unit
         this.CheckWalkingState();
     }
 
-    public void MoveAndDo(Vector3 destination, Action onDestinationReached)
+    public void MoveAndDo(Vector3 destination, Action<Player> onDestinationReached)
     {
         this.DestinationReachedDelegate = null;
         this.DestinationReachedDelegate += new OnDestinationReached(onDestinationReached);
@@ -47,6 +50,7 @@ public class Player : Unit
 
     public void Move(Vector3 destination)
     {
+        this.PlayerStartMovingDelegate?.Invoke(this);
         this.navMeshAgent.destination = destination;
         this.navMeshAgent.isStopped = false;
     }
@@ -59,7 +63,7 @@ public class Player : Unit
             {
                 this.navMeshAgent.isStopped = true;
                 this.navMeshAgent.destination = this.transform.position;
-                this.DestinationReachedDelegate?.Invoke();
+                this.DestinationReachedDelegate?.Invoke(this);
                 this.DestinationReachedDelegate = null;
             }
         }

@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
     [Header("Camera Mode")]
     [Space]
     public CAMERAMODE CameraMode = CAMERAMODE.RTS;
+    public bool MouseBorderMovement = true;
 
     [Header("Movement Speeds")]
     [Space]
@@ -140,10 +141,10 @@ public class CameraController : MonoBehaviour
         float widthPanValue = Input.GetAxis("WidthPan");
         float heightPanValue = Input.GetAxis("HeightPan");
 
-        bool moveForward = lengthPanValue > 0 || (Input.mousePosition.y >= Screen.height - this.ScreenEdgeBorderThickness && Input.mousePosition.y <= Screen.height);
-        bool moveBackward = lengthPanValue < 0 || (Input.mousePosition.y <= this.ScreenEdgeBorderThickness && Input.mousePosition.y >= 0);
-        bool moveLeft = widthPanValue < 0 || (Input.mousePosition.x <= this.ScreenEdgeBorderThickness && Input.mousePosition.x >= 0);
-        bool moveRight = widthPanValue > 0 || (Input.mousePosition.x >= Screen.width - this.ScreenEdgeBorderThickness && Input.mousePosition.x <= Screen.width);
+        bool moveForward = lengthPanValue > 0 || (MouseBorderMovement && Input.mousePosition.y >= Screen.height - this.ScreenEdgeBorderThickness && Input.mousePosition.y <= Screen.height);
+        bool moveBackward = lengthPanValue < 0 || (MouseBorderMovement && Input.mousePosition.y <= this.ScreenEdgeBorderThickness && Input.mousePosition.y >= 0);
+        bool moveLeft = widthPanValue < 0 || (MouseBorderMovement && Input.mousePosition.x <= this.ScreenEdgeBorderThickness && Input.mousePosition.x >= 0);
+        bool moveRight = widthPanValue > 0 || (MouseBorderMovement && Input.mousePosition.x >= Screen.width - this.ScreenEdgeBorderThickness && Input.mousePosition.x <= Screen.width);
         bool moveUp = heightPanValue < 0;
         bool moveDown = heightPanValue > 0;
 
