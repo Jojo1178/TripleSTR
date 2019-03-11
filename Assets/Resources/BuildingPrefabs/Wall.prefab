@@ -439,8 +439,10 @@ MonoBehaviour:
   - {fileID: 1176535495850302916}
   maxLifePoint: 10
   healthBar: {fileID: 116936962}
+  LifeBarGO: {fileID: 1649915046}
   constructionTimeSec: 15
   pauseConstruction: 0
+  constructed: 0
 --- !u!1 &7676204895704356111
 GameObject:
   m_ObjectHideFlags: 0

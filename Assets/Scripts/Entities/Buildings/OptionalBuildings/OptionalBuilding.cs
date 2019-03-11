@@ -8,6 +8,7 @@ public class OptionalBuilding : Building, IWorkingEntity
 {
     public float maxLifePoint = 10;
     public Image healthBar;
+    public GameObject LifeBarGO;
 
     private float _currentLifePoint = 1;
     public float CurrentLifePoint
@@ -19,6 +20,7 @@ public class OptionalBuilding : Building, IWorkingEntity
             this.healthBar.fillAmount = this._currentLifePoint / this.maxLifePoint;
             if (this._currentLifePoint <= 0)
                 GameObject.Destroy(this.gameObject);
+            this.LifeBarGO.SetActive(this._currentLifePoint < this.maxLifePoint);
         }
     }
 
