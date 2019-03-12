@@ -3,14 +3,32 @@ guid: a57abe4141cc559408f615b531eb9502
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: group_0_undefined
-    100002: //RootNode
-    400000: group_0_undefined
-    400002: //RootNode
-    2100000: group_0_undefinedMat
-    2300000: group_0_undefined
-    3300000: group_0_undefined
-    4300000: group_0_undefined
+    100000: group_0_15277357
+    100002: group_0_16089887
+    100004: group_0_2829873
+    100006: group_0_9771553
+    100008: //RootNode
+    400000: group_0_15277357
+    400002: group_0_16089887
+    400004: group_0_2829873
+    400006: group_0_9771553
+    400008: //RootNode
+    2100000: group_0_15277357Mat
+    2100002: group_0_16089887Mat
+    2100004: group_0_2829873Mat
+    2100006: group_0_9771553Mat
+    2300000: group_0_15277357
+    2300002: group_0_16089887
+    2300004: group_0_2829873
+    2300006: group_0_9771553
+    3300000: group_0_15277357
+    3300002: group_0_16089887
+    3300004: group_0_2829873
+    3300006: group_0_9771553
+    4300000: group_0_15277357
+    4300002: group_0_16089887
+    4300004: group_0_2829873
+    4300006: group_0_9771553
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
