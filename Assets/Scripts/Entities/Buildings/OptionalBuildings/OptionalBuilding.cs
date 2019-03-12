@@ -39,7 +39,7 @@ public class OptionalBuilding : Building, IWorkingEntity
         this.pauseConstruction = true;
         this.lifePerSecond = this.maxLifePoint / this.constructionTimeSec;
         this.timeSpent = 0;
-        this.resumeWork(player);
+        this.movePlayerToBuildingEntrance();
     }
 
     private IEnumerator ContructBuilding()
@@ -60,6 +60,11 @@ public class OptionalBuilding : Building, IWorkingEntity
     {
         //base.clicked(mouseInput, hit);
         Debug.Log("Optionnal BUILDING SELECTED (" + mouseInput + ")" + this.GetType());
+        this.movePlayerToBuildingEntrance();
+    }
+
+    protected override void movePlayerToBuildingEntrance()
+    {
         ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position), (player) =>
         {
             if (!this.constructed)

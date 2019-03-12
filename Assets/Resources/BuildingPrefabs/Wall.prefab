@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 1119523330987104969}
   - component: {fileID: 1069354152279534051}
   - component: {fileID: 6106219517633202112}
-  - component: {fileID: 2570428310994547081}
+  - component: {fileID: 5404803717675539264}
   m_Layer: 0
   m_Name: WallMesh
   m_TagString: Untagged
@@ -342,7 +342,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!208 &2570428310994547081
+--- !u!208 &5404803717675539264
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d5ea42a4d5cc7448984f609377be21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshObstacle: {fileID: 2570428310994547081}
+  navMeshObstacle: {fileID: 0}
   entryPoints:
   - {fileID: 7055947280958526630}
   - {fileID: 1176535495850302916}

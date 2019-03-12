@@ -1,22 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Map : MonoBehaviour, ISelectionableEntity
 {
 
-    //public Navme [] surfaces;
+    public NavMeshSurface surface;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.ReBakeNavMesh();
     }
 
     public void clicked(int mouseInput, RaycastHit hit)
@@ -31,11 +25,12 @@ public class Map : MonoBehaviour, ISelectionableEntity
         }
     }
 
-    //public void ReBakeNavMesh()
-    //{
-    //    for (int i = 0; i < surfaces.Length; i++)
-    //    {
-    //        surfaces[i].BuildNavMesh();
-    //    }
-    //}
+    public void ReBakeNavMesh()
+    {
+        this.surface.BuildNavMesh();
+        //for (int i = 0; i < surfaces.Length; i++)
+        //{
+        //    surfaces[i].BuildNavMesh();
+        //}
+    }
 }
