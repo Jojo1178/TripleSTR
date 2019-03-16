@@ -45,10 +45,16 @@ public class Player : Unit
     {
         this.DestinationReachedDelegate = null;
         this.DestinationReachedDelegate += new OnDestinationReached(onDestinationReached);
-        this.Move(destination);
+        this.StartMoving(destination);
     }
 
     public void Move(Vector3 destination)
+    {
+        this.DestinationReachedDelegate = null;
+        this.StartMoving(destination);
+    }
+
+    private void StartMoving(Vector3 destination)
     {
         this.PlayerStartMovingDelegate?.Invoke(this);
         this.navMeshAgent.destination = destination;
@@ -57,19 +63,18 @@ public class Player : Unit
 
     private void CheckWalkingState()
     {
-        if (this.navMeshAgent.remainingDistance <= this.navMeshAgent.stoppingDistance)
+        if (!this.navMeshAgent.pathPending)
         {
-            if (!this.navMeshAgent.hasPath || Mathf.Abs(this.navMeshAgent.velocity.sqrMagnitude) < float.Epsilon)
+            if (this.navMeshAgent.remainingDistance <= this.navMeshAgent.stoppingDistance)
             {
-                this.navMeshAgent.isStopped = true;
-                this.navMeshAgent.destination = this.transform.position;
-                this.DestinationReachedDelegate?.Invoke(this);
-                this.DestinationReachedDelegate = null;
+                if (this.navMeshAgent.hasPath || Mathf.Abs(this.navMeshAgent.velocity.sqrMagnitude) < float.Epsilon)
+                {
+                    this.navMeshAgent.isStopped = true;
+                    this.navMeshAgent.ResetPath();
+                    this.DestinationReachedDelegate?.Invoke(this);
+                    this.DestinationReachedDelegate = null;
+                }
             }
-        }
-        else
-        {
-            this.navMeshAgent.isStopped = false;
         }
     }
 

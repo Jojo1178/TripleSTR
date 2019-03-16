@@ -433,13 +433,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d5ea42a4d5cc7448984f609377be21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshObstacle: {fileID: 0}
+  navMeshObstacle: {fileID: 5404803717675539264}
   entryPoints:
   - {fileID: 7055947280958526630}
   - {fileID: 1176535495850302916}
   maxLifePoint: 10
   healthBar: {fileID: 116936962}
-  LifeBarGO: {fileID: 1649915046}
+  lifeBarGO: {fileID: 1649915046}
+  navMeshObstacleSize: {x: 1, y: 1, z: 1}
   constructionTimeSec: 15
   pauseConstruction: 0
   constructed: 0

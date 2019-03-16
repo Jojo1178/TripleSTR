@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class OptionalBuilding : Building, IWorkingEntity
 {
     public float maxLifePoint = 10;
     public Image healthBar;
-    public GameObject LifeBarGO;
+    public GameObject lifeBarGO;
 
     private float _currentLifePoint = 1;
     public float CurrentLifePoint
@@ -20,7 +21,7 @@ public class OptionalBuilding : Building, IWorkingEntity
             this.healthBar.fillAmount = this._currentLifePoint / this.maxLifePoint;
             if (this._currentLifePoint <= 0)
                 GameObject.Destroy(this.gameObject);
-            this.LifeBarGO.SetActive(this._currentLifePoint < this.maxLifePoint);
+            this.lifeBarGO.SetActive(this._currentLifePoint < this.maxLifePoint);
         }
     }
 
@@ -39,7 +40,7 @@ public class OptionalBuilding : Building, IWorkingEntity
         this.pauseConstruction = true;
         this.lifePerSecond = this.maxLifePoint / this.constructionTimeSec;
         this.timeSpent = 0;
-        this.movePlayerToBuildingEntrance();
+        this.movePlayerToBuildingEntrance(player);
     }
 
     private IEnumerator ContructBuilding()
@@ -60,16 +61,17 @@ public class OptionalBuilding : Building, IWorkingEntity
     {
         //base.clicked(mouseInput, hit);
         Debug.Log("Optionnal BUILDING SELECTED (" + mouseInput + ")" + this.GetType());
-        this.movePlayerToBuildingEntrance();
+        this.movePlayerToBuildingEntrance(ApplicationController.INSTANCE.MainPlayer);
     }
 
-    protected override void movePlayerToBuildingEntrance()
+    protected override void movePlayerToBuildingEntrance(Player player)
     {
-        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position), (player) =>
+        Vector3 target = this.getClosestEntryPoint(player.transform.position);
+        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(target, (p) =>
         {
             if (!this.constructed)
             {
-                this.resumeWork(player);
+                this.resumeWork(p);
             }
             else
             {
