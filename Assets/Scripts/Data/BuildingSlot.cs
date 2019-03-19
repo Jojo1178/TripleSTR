@@ -23,6 +23,8 @@ public class BuildingResources
 [XmlRoot(ElementName = "building")]
 public class BuildingSlot
 {
+    [XmlAttribute(AttributeName = "buildingType")]
+    public string BuildingType { get; set; }
     [XmlElement(ElementName = "name")]
     public string Name { get; set; }
     [XmlElement(ElementName = "Image")]

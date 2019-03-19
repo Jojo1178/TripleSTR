@@ -72,7 +72,7 @@ public class EntitiesController : MonoBehaviour
             building.transform.position = this.lastSelectedBuilding.transform.position;
             GameObject.Destroy(this.lastSelectedBuilding.gameObject);
             OptionalBuilding ob = building.GetComponent<OptionalBuilding>();
-            ob.InitBuilding(ApplicationController.INSTANCE.MainPlayer);
+            ob.InitBuilding(EntitiesController.INSTANCE.getPlayer());
         }
         else
         {

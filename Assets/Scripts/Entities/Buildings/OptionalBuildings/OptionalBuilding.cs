@@ -65,7 +65,7 @@ public class OptionalBuilding : Building, IWorkingEntity
 
     protected override void movePlayerToBuildingEntrance()
     {
-        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position), (player) =>
+        EntitiesController.INSTANCE.getPlayer().MoveAndDo(this.getClosestEntryPoint(EntitiesController.INSTANCE.getPlayer().transform.position), (player) =>
         {
             if (!this.constructed)
             {

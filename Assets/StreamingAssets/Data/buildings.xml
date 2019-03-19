@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <buildings>
-	<building>
+  
+	<building buildingType='OPTIONAL_BUILDING'>
 		<name>Grand Fosse</name>
+    <prefab>Wall</prefab>
     <Image>Buildings/Grand_Fosse</Image>
     <resources>
       <resource quantity='1'>O_WoodenPlank</resource>
       <resource quantity='2'>O_MetalScrap</resource>
     </resources>
 	</building>
-	<building>
+  
+	<building buildingType='DEFENSE_TOWER'>
 		<name>Tour de Guet</name>
+    <prefab>Wall</prefab>
     <Image>Buildings/Tour_De_Guet</Image>
     <resources>
       <resource quantity='5'>O_WaterBottle</resource>
     </resources>
 	</building>
-  <building>
+  
+  <building buildingType='WALL'>
     <name>Blindage d'entree</name>
     <prefab>Wall</prefab>
     <Image>Buildings/Blindage_D_Entree</Image>
@@ -25,4 +30,5 @@
       <resource quantity='1'>O_WoodenPlank</resource>
     </resources>
   </building>
+  
 </buildings>

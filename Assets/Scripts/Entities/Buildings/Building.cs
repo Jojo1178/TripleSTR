@@ -27,7 +27,7 @@ public class Building : SpawnableEntity, ISelectionableEntity
 
     protected virtual void movePlayerToBuildingEntrance()
     {
-        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(this.getClosestEntryPoint(ApplicationController.INSTANCE.MainPlayer.transform.position), (player) =>
+        EntitiesController.INSTANCE.getPlayer().MoveAndDo(this.getClosestEntryPoint(EntitiesController.INSTANCE.getPlayer().transform.position), (player) =>
         {
             this.PlayerReachBuildingEntrance();
         });
