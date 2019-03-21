@@ -34,6 +34,7 @@ public class OptionalBuilding : Building, IWorkingEntity
 
     public void InitBuilding(Player player)
     {
+        Debug.LogError("INIT BUILDING");
         this.healthBar.fillAmount = this._currentLifePoint / this.maxLifePoint;
         this.constructed = false;
         this.pauseConstruction = true;

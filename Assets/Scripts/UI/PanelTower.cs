@@ -5,7 +5,7 @@ using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelEmptySlot : MonoBehaviour
+public class PanelTower : MonoBehaviour
 {
     public GameObject content;
     public GameObject panelBuildingDetailsPrefab;
@@ -26,9 +26,9 @@ public class PanelEmptySlot : MonoBehaviour
     private void createBuildingOptions()
     {
         //On parcours tous les BuildingSlot du fichier XML et on crée les Panels à ajouter dans l'UI:
-        foreach(BuildingSlot bs in ApplicationController.INSTANCE.DataBaseManager.BuildingSlots.Building)
+        foreach (BuildingSlot bs in ApplicationController.INSTANCE.DataBaseManager.BuildingSlots.Building)
         {
-            if (bs.BuildingType.Equals("OPTIONAL"))
+            if (bs.BuildingType.Equals("TOWER"))
             {
                 this.BuildBuildingOption(bs);
             }
@@ -56,7 +56,7 @@ public class PanelEmptySlot : MonoBehaviour
             panelResourcesNeededGo.transform.localPosition = new Vector2(200 + (i * 80), -20);
             buildingOption.addPanelResourcesNeeded(panelResourcesNeededGo.GetComponent<PanelResourceNeeded>());
             BuildingResource br = bs.Resources.Resource[i];
-            buildingOption.addResource((UsableObject)Activator.CreateInstance(Type.GetType(br.Text),4), Convert.ToInt32(br.Quantity));
+            buildingOption.addResource((UsableObject)Activator.CreateInstance(Type.GetType(br.Text), 4), Convert.ToInt32(br.Quantity));
         }
 
         //Populate the UI:

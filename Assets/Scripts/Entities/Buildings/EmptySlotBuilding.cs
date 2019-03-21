@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EmptySlotBuilding : Building
 {
+    public enum BuildingTypeEnum {WALL, TOWER, OPTIONAL}
+
+    public BuildingTypeEnum buildingType;
+
     // Start is called before the first frame update
     new protected void Start()
     {
@@ -20,6 +24,24 @@ public class EmptySlotBuilding : Building
     protected override void PlayerReachBuildingEntrance()
     {
         base.PlayerReachBuildingEntrance();
-        UIManager.INSTANCE.openEmptySlotPanel();
+
+        switch (buildingType)
+        {
+            case BuildingTypeEnum.WALL:
+            {
+                UIManager.INSTANCE.openWallPanel();
+                break;
+            }
+            case BuildingTypeEnum.TOWER:
+            {
+                UIManager.INSTANCE.openTowerPanel();
+                break;
+            }
+            case BuildingTypeEnum.OPTIONAL:
+            {
+                UIManager.INSTANCE.openEmptySlotPanel();
+                break;
+            }
+        }
     }
 }

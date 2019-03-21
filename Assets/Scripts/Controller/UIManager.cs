@@ -16,7 +16,9 @@ public class UIManager : MonoBehaviour
     public GameObject panelBank;
     public GameObject panelTownHall;
     public GameObject panelEmptySlot;
-    public GameObject panelHouse;    
+    public GameObject panelHouse;
+    public GameObject panelWall;
+    public GameObject panelTower;
 
     private void Awake()
     {
@@ -28,31 +30,6 @@ public class UIManager : MonoBehaviour
         //Affichage de l'UI commune a tous les batiments:
         panelBuildings.SetActive(true);
         EntitiesController.INSTANCE.lastSelectedBuilding = selectedBuilding;
-
-        ////Affichage de l'UI propre a chaque batiment:
-        //switch (selectedBuilding.getName())
-        //{
-        //    case "Bank":
-        //        this.bankSelected();
-        //        break;
-        //    case "Door":
-        //        this.doorSelected();
-        //        break;
-        //    case "Town Hall":
-        //        this.townHallSelected();
-        //        break;
-        //    case "Well":
-        //        this.wellSelected();
-        //        break;
-        //    case "House":
-        //        this.houseSelected();
-        //        break;
-        //    case "Empty Slot":
-        //        this.emptySlot();
-        //        break;
-        //    default:
-        //        break;
-        //}
     }
 
     public void UnitSelected(Unit selectedUnit)
@@ -95,6 +72,16 @@ public class UIManager : MonoBehaviour
         panelEmptySlot.SetActive(true);
     }
 
+    public void openWallPanel()
+    {
+        panelWall.SetActive(true);
+    }
+
+    public void openTowerPanel()
+    {
+        panelTower.SetActive(true);
+    }
+
     public void quitPanelBuildings()
     {
         panelWell.SetActive(false);
@@ -103,6 +90,8 @@ public class UIManager : MonoBehaviour
         panelTownHall.SetActive(false);
         panelHouse.SetActive(false);
         panelEmptySlot.SetActive(false);
+        panelWall.SetActive(false);
+        panelTower.SetActive(false);
 
         panelBuildings.SetActive(false);
     }
