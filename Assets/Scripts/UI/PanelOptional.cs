@@ -5,7 +5,7 @@ using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelEmptySlot : MonoBehaviour
+public class PanelOptional : MonoBehaviour
 {
     public GameObject content;
     public GameObject panelBuildingDetailsPrefab;

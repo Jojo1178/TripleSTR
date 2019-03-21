@@ -4,14 +4,24 @@
   <!-- OPTIONAL BUILDINGS -->
   
 	<building buildingType='OPTIONAL'>
-		<name>Grand Fosse</name>
+		<name>Pompe</name>
     <prefab>Wall</prefab>
-    <Image>Buildings/Grand_Fosse</Image>
+    <Image>Buildings/Pompe</Image>
     <resources>
       <resource quantity='1'>O_WoodenPlank</resource>
       <resource quantity='2'>O_MetalScrap</resource>
     </resources>
 	</building>
+
+  <building buildingType='OPTIONAL'>
+    <name>Boucherie</name>
+    <prefab>Wall</prefab>
+    <Image>Buildings/Boucherie</Image>
+    <resources>
+      <resource quantity='2'>O_WoodenPlank</resource>
+      <resource quantity='2'>O_MetalScrap</resource>
+    </resources>
+  </building>
 
   <!-- TOWERS -->
 
@@ -20,7 +30,7 @@
     <prefab>Wall</prefab>
     <Image>Buildings/Tour_De_Guet</Image>
     <resources>
-      <resource quantity='5'>O_WaterBottle</resource>
+      <resource quantity='3'>O_WoodenPlank</resource>
     </resources>
 	</building>
   
