@@ -27,10 +27,10 @@
 
   <building buildingType='TOWER'>
 		<name>Tour de Guet</name>
-    <prefab>Wall</prefab>
+    <prefab>DefensiveTower</prefab>
     <Image>Buildings/Tour_De_Guet</Image>
     <resources>
-      <resource quantity='3'>O_WoodenPlank</resource>
+      <resource quantity='1'>O_WoodenPlank</resource>
     </resources>
 	</building>
   
@@ -38,7 +38,7 @@
   
   <building buildingType='WALL'>
     <name>Palissade</name>
-    <prefab>Wall</prefab>
+    <prefab>TourDeGuet</prefab>
     <Image>Buildings/Palissade</Image>
     <resources>
       <resource quantity='1'>O_WoodenPlank</resource>
@@ -48,7 +48,7 @@
 
   <building buildingType='WALL'>
     <name>Palissade renforcée</name>
-    <prefab>Wall</prefab>
+    <prefab>TourDeGuet</prefab>
     <Image>Buildings/Palissade_renforcee</Image>
     <resources>
       <resource quantity='1'>O_WoodenPlank</resource>
@@ -58,7 +58,7 @@
 
   <building buildingType='WALL'>
     <name>Palissade en briques</name>
-    <prefab>Wall</prefab>
+    <prefab>TourDeGuet</prefab>
     <Image>Buildings/Palissade_briques</Image>
     <resources>
       <resource quantity='1'>O_WoodenPlank</resource>

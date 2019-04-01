@@ -69,7 +69,8 @@ public class EntitiesController : MonoBehaviour
         if (bulidingToBuild != null)
         {
             GameObject building = GameObject.Instantiate(bulidingToBuild);
-            building.transform.position = this.lastSelectedBuilding.transform.position;
+            Vector3 buildingModificators = building.transform.position;
+            building.transform.position = this.lastSelectedBuilding.transform.position + buildingModificators;
             GameObject.Destroy(this.lastSelectedBuilding.gameObject);
             OptionalBuilding ob = building.GetComponent<OptionalBuilding>();
             ob.InitBuilding(EntitiesController.INSTANCE.getPlayer());
