@@ -22,12 +22,12 @@ public class Building : SpawnableEntity, ISelectionableEntity
     public virtual void clicked(int mouseInput, RaycastHit hit)
     {
         Debug.Log("BUILDING SELECTED (" + mouseInput + ")" + this.GetType());
-        this.movePlayerToBuildingEntrance(ApplicationController.INSTANCE.MainPlayer);
+        this.movePlayerToBuildingEntrance(EntitiesController.INSTANCE.getPlayer());
     }
 
     protected virtual void movePlayerToBuildingEntrance(Player player)
     {
-        player.MoveAndDo(this.getClosestEntryPoint(player.transform.position), (p) =>
+        EntitiesController.INSTANCE.getPlayer().MoveAndDo(this.getClosestEntryPoint(EntitiesController.INSTANCE.getPlayer().transform.position), (p) =>
         {
             this.PlayerReachBuildingEntrance();
         });

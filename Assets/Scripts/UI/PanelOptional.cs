@@ -5,7 +5,7 @@ using System.Xml;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelEmptySlot : MonoBehaviour
+public class PanelOptional : MonoBehaviour
 {
     public GameObject content;
     public GameObject panelBuildingDetailsPrefab;
@@ -25,9 +25,13 @@ public class PanelEmptySlot : MonoBehaviour
 
     private void createBuildingOptions()
     {
+        //On parcours tous les BuildingSlot du fichier XML et on crée les Panels à ajouter dans l'UI:
         foreach(BuildingSlot bs in ApplicationController.INSTANCE.DataBaseManager.BuildingSlots.Building)
         {
-            this.BuildBuildingOption(bs);
+            if (bs.BuildingType.Equals("OPTIONAL"))
+            {
+                this.BuildBuildingOption(bs);
+            }
         }
     }
 

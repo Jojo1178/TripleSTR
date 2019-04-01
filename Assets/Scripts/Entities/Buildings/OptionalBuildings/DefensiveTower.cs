@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : OptionalBuilding, ISelectionableEntity
+public class DefensiveTower : OptionalBuilding, ISelectionableEntity
 {
     // Start is called before the first frame update
     new protected void Start()
     {
         base.Start();
-        this.setName("Wall");
+        this.setName("Defensive Tower");
     }
 
     // Update is called once per frame
@@ -20,6 +20,6 @@ public class Wall : OptionalBuilding, ISelectionableEntity
     protected override void PlayerReachBuildingEntrance()
     {
         base.PlayerReachBuildingEntrance();
-        UIManager.INSTANCE.openWallPanel();
+        UIManager.INSTANCE.openTowerPanel();
     }
 }

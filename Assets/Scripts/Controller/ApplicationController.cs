@@ -10,7 +10,6 @@ public class ApplicationController : MonoBehaviour
     public DataBaseManager DataBaseManager;
     public MouseInputManager MouseInputManager;
     public TimeCycleManager TimeCycleManager;
-    public Player MainPlayer;
     public Map Map;
 
     private void Awake()

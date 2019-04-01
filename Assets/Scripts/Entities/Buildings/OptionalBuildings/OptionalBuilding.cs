@@ -35,6 +35,7 @@ public class OptionalBuilding : Building, IWorkingEntity
 
     public void InitBuilding(Player player)
     {
+        Debug.LogError("INIT BUILDING");
         this.healthBar.fillAmount = this._currentLifePoint / this.maxLifePoint;
         this.constructed = false;
         this.pauseConstruction = true;
@@ -61,13 +62,12 @@ public class OptionalBuilding : Building, IWorkingEntity
     {
         //base.clicked(mouseInput, hit);
         Debug.Log("Optionnal BUILDING SELECTED (" + mouseInput + ")" + this.GetType());
-        this.movePlayerToBuildingEntrance(ApplicationController.INSTANCE.MainPlayer);
+        this.movePlayerToBuildingEntrance(EntitiesController.INSTANCE.getPlayer());
     }
 
     protected override void movePlayerToBuildingEntrance(Player player)
     {
-        Vector3 target = this.getClosestEntryPoint(player.transform.position);
-        ApplicationController.INSTANCE.MainPlayer.MoveAndDo(target, (p) =>
+        EntitiesController.INSTANCE.getPlayer().MoveAndDo(this.getClosestEntryPoint(EntitiesController.INSTANCE.getPlayer().transform.position), (p) =>
         {
             if (!this.constructed)
             {
