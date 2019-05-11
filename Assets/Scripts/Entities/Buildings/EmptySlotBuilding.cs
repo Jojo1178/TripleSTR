@@ -23,6 +23,8 @@ public class EmptySlotBuilding : Building
 
     protected override void PlayerReachBuildingEntrance()
     {
+        Debug.Log("EmptySlotBuilding : PlayerReachBuildingEntrance");
+
         base.PlayerReachBuildingEntrance();
 
         switch (buildingType)

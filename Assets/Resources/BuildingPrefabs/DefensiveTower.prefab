@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6537025260784071940}
   - component: {fileID: 160946347217814287}
+  - component: {fileID: 2002178394579989563}
   m_Layer: 0
   m_Name: DefensiveTower
   m_TagString: Untagged
@@ -85,6 +86,19 @@ MonoBehaviour:
   constructionTimeSec: 15
   pauseConstruction: 0
   constructed: 0
+--- !u!65 &2002178394579989563
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537025260784071943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 8, z: 5}
+  m_Center: {x: 0, y: 0, z: 4}
 --- !u!1 &6537025261201701181
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +275,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6537025261346844898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 0.049999997}
   m_Children:
   - {fileID: 6537025261286884293}
@@ -270,7 +284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.5, y: 5}
+  m_AnchoredPosition: {x: -0.5, y: 5}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6537025261346844902
@@ -449,6 +463,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 2300004, guid: 86ec8353fae4c3a40b63f12d4204eea1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5f98e9dfd88f6d40af91a685dec91e4, type: 2}
     - target: {fileID: 2300000, guid: 86ec8353fae4c3a40b63f12d4204eea1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -457,10 +475,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b2d78c6ee6ff3a047a09112ab4a83cbb, type: 2}
-    - target: {fileID: 2300004, guid: 86ec8353fae4c3a40b63f12d4204eea1, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f5f98e9dfd88f6d40af91a685dec91e4, type: 2}
     - target: {fileID: 2300006, guid: 86ec8353fae4c3a40b63f12d4204eea1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

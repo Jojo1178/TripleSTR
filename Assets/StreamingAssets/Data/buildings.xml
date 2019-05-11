@@ -37,33 +37,22 @@
   <!-- WALLS -->
   
   <building buildingType='WALL'>
-    <name>Palissade</name>
+    <name>Mur en béton</name>
     <prefab>Wall</prefab>
     <Image>Buildings/Palissade</Image>
     <resources>
-      <resource quantity='1'>O_WoodenPlank</resource>
-      <resource quantity='1'>O_MetalScrap</resource>
+      <resource quantity='0'>O_WoodenPlank</resource>
+      <resource quantity='0'>O_MetalScrap</resource>
     </resources>
   </building>
 
   <building buildingType='WALL'>
-    <name>Palissade renforcée</name>
-    <prefab>Wall</prefab>
+    <name>Mur en béton avec rampe</name>
+    <prefab>Wall_Ramp</prefab>
     <Image>Buildings/Palissade_renforcee</Image>
     <resources>
-      <resource quantity='1'>O_WoodenPlank</resource>
-      <resource quantity='1'>O_MetalScrap</resource>
-    </resources>
-  </building>
-
-  <building buildingType='WALL'>
-    <name>Palissade en briques</name>
-    <prefab>Wall</prefab>
-    <Image>Buildings/Palissade_briques</Image>
-    <resources>
-      <resource quantity='1'>O_WoodenPlank</resource>
-      <resource quantity='1'>O_MetalScrap</resource>
-      <resource quantity='1'>O_Concrete</resource>
+      <resource quantity='0'>O_WoodenPlank</resource>
+      <resource quantity='0'>O_MetalScrap</resource>
     </resources>
   </building>
   

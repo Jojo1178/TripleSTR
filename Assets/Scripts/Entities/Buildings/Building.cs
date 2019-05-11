@@ -27,6 +27,7 @@ public class Building : SpawnableEntity, ISelectionableEntity
 
     protected virtual void movePlayerToBuildingEntrance(Player player)
     {
+        Debug.Log("Building : movePlayerToBuildingEntrance");
         EntitiesController.INSTANCE.getPlayer().MoveAndDo(this.getClosestEntryPoint(EntitiesController.INSTANCE.getPlayer().transform.position), (p) =>
         {
             this.PlayerReachBuildingEntrance();
@@ -35,6 +36,7 @@ public class Building : SpawnableEntity, ISelectionableEntity
 
     protected virtual void PlayerReachBuildingEntrance()
     {
+        Debug.Log("Building : PlayerReachBuildingEntrance");
         UIManager.INSTANCE.BuildingSelected(this);
     }
 

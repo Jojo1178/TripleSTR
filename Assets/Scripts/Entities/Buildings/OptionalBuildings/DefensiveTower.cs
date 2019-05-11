@@ -19,6 +19,7 @@ public class DefensiveTower : OptionalBuilding, ISelectionableEntity
 
     protected override void PlayerReachBuildingEntrance()
     {
+        Debug.LogError("Defensive Tower : PlayerReachBuildingEntrance");
         base.PlayerReachBuildingEntrance();
         UIManager.INSTANCE.openTowerPanel();
     }
