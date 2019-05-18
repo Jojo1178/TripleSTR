@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EmptySlotBuilding : Building
 {
-    public enum BuildingTypeEnum {WALL, TOWER, OPTIONAL}
+    public enum BuildingTypeEnum {WALL, WALL_CORNER, TOWER, OPTIONAL}
 
     public BuildingTypeEnum buildingType;
 
@@ -33,6 +33,11 @@ public class EmptySlotBuilding : Building
             {
                 UIManager.INSTANCE.openWallPanel();
                 break;
+            }
+            case BuildingTypeEnum.WALL_CORNER:
+            {
+                    UIManager.INSTANCE.openWallCornerPanel();
+                    break;
             }
             case BuildingTypeEnum.TOWER:
             {

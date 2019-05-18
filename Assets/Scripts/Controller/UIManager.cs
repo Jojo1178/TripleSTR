@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject panelEmptySlot;
     public GameObject panelHouse;
     public GameObject panelWall;
+    public GameObject panelWallCorner;
     public GameObject panelTower;
 
     private void Awake()
@@ -77,6 +78,11 @@ public class UIManager : MonoBehaviour
         panelWall.SetActive(true);
     }
 
+    public void openWallCornerPanel()
+    {
+        panelWallCorner.SetActive(true);
+    }
+
     public void openTowerPanel()
     {
         panelTower.SetActive(true);
@@ -91,6 +97,7 @@ public class UIManager : MonoBehaviour
         panelHouse.SetActive(false);
         panelEmptySlot.SetActive(false);
         panelWall.SetActive(false);
+        panelWallCorner.SetActive(false);
         panelTower.SetActive(false);
 
         panelBuildings.SetActive(false);

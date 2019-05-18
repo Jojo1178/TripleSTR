@@ -47,8 +47,20 @@
   </building>
 
   <building buildingType='WALL'>
-    <name>Mur en béton avec rampe</name>
+    <name>Mur Rampe</name>
     <prefab>Wall_Ramp</prefab>
+    <Image>Buildings/Palissade_renforcee</Image>
+    <resources>
+      <resource quantity='0'>O_WoodenPlank</resource>
+      <resource quantity='0'>O_MetalScrap</resource>
+    </resources>
+  </building>
+
+  <!-- WALLS CORNERS -->
+
+  <building buildingType='WALL_CORNER'>
+    <name>Mur Corner</name>
+    <prefab>Wall_Corner</prefab>
     <Image>Buildings/Palissade_renforcee</Image>
     <resources>
       <resource quantity='0'>O_WoodenPlank</resource>
